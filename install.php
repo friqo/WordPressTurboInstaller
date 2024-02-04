@@ -16,7 +16,8 @@ function showForm() {
     ?>
     <div class="container mt-5">
     
-<p id="progressText"></p>
+<p id="progressText">Welcome to WordPress Turbo Installer.</p>
+<p>If You install WP many times, this should speed up the process ;-). All you need to do is select the plugins you want to install and the latest version of WP together with the plugins will land at this address. Try it, and if something doesn't work, your hosting probably doesn't support these solutions, or there's some bug I didn't think about ;p you can write to me or give a star if it helped you at <a href="https://github.com/friqo/WordPressTurboInstaller" target="_blank">https://github.com/friqo/WordPressTurboInstaller</a></p>
 
         <form action="install.php" method="post" class="form-group">
             <!-- Lista wtyczek -->
@@ -31,10 +32,6 @@ function showForm() {
         <p>
             <input type="checkbox" name="plugins[]" value="solid-security" id="solid-security">
             <label for="solid-security">Solid Security – Password, Two Factor Authentication, and Brute Force Protection</label>
-        </p>
-        <p>
-            <input type="checkbox" name="plugins[]" value="woocommerce" id="woocommerce">
-            <label for="woocommerce">Woocommerce</label>
         </p>
         <p>
             <input type="checkbox" name="plugins[]" value="woocommerce" id="woocommerce">
@@ -105,7 +102,7 @@ function unzipWordPress() {
         $zip->close();
         unlink('wordpress.zip');
     } else {
-        echo 'Błąd podczas rozpakowywania: ' . $res;
+        echo 'Error during unpack: ' . $res;
     }
 }
 
@@ -126,10 +123,10 @@ function downloadPlugins($plugins) {
                 $zip->close();
                 unlink($zipFile);
             } else {
-                echo "Błąd podczas rozpakowywania wtyczki: $plugin<br>";
+                echo "Error during unpack plugin: $plugin<br>";
             }
         } else {
-            echo "Nie udało się pobrać adresu URL wtyczki: $plugin<br>";
+            echo "I was not able to fetch the plugin: $plugin, check the URL<br>";
         }
     }
 }
@@ -146,7 +143,7 @@ function getPluginDownloadUrl($pluginSlug) {
         'lscache'=>'https://pl.wordpress.org/plugins/litespeed-cache/',
         'updraft-plus' => 'https://pl.wordpress.org/plugins/updraftplus/',
         'wordfence'=>'https://pl.wordpress.org/plugins/wordfence/'
-        // Dodaj tutaj więcej wtyczek w razie potrzeby
+        // add more plugins if You need.
     ];
 
     if (isset($pluginPages[$pluginSlug])) {
