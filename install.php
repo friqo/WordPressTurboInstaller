@@ -16,8 +16,9 @@ function showForm() {
     ?>
     <div class="container mt-5">
     
-<p id="progressText">Welcome to WordPress Turbo Installer.</p>
-<p>If You install WP many times, this should speed up the process ;-). All you need to do is select the plugins you want to install and the latest version of WP together with the plugins will land at this address. Try it, and if something doesn't work, your hosting probably doesn't support these solutions, or there's some bug I didn't think about ;p you can write to me or give a star if it helped you at <a href="https://github.com/friqo/WordPressTurboInstaller" target="_blank">https://github.com/friqo/WordPressTurboInstaller</a></p>
+<p id="progressText" style="font-weight:bold; font-size:30px">Welcome to WordPress Turbo Installer.</p>
+<p>If You install WP many times, this should speed up the process ;-). All you need to do is select the plugins you want to install and the latest version of WP together with the plugins will land at this address. Try it, and if something doesn't work, your hosting probably doesn't support these solutions, or there's some bug I didn't think about ;p you can write to me or give a star if it helped you at <a href="https://github.com/friqo/WordPressTurboInstaller" target="_blank">https://github.com/friqo/WordPressTurboInstaller</a>. <br>
+That's all, let's go! </p>
 
         <form action="install.php" method="post" class="form-group">
             <!-- Lista wtyczek -->
@@ -57,8 +58,17 @@ function showForm() {
             <input type="checkbox" name="plugins[]" value="wordfence" id="wordfence">
             <label for="wordfence">Wordfence</label>
         </p>
+        <p>
+            <input type="checkbox" name="plugins[]" value="elementor" id="elementor">
+            <label for="elementor">Elementor</label>
+        </p>
+        
+
+        <p style="font-size:14px; padding:15px; background:#f4f4f4; border-radius:15px; margin-bottom:20px"> Note! WordPress and plugins in the latest version are downloaded from the official WordPress repository.</p>
+
             
             <input type="submit" value="Install" class="btn btn-primary mt-3">
+
         </form>
     </div>
 
@@ -142,7 +152,8 @@ function getPluginDownloadUrl($pluginSlug) {
         'aioseo' => 'https://pl.wordpress.org/plugins/all-in-one-seo-pack/',
         'lscache'=>'https://pl.wordpress.org/plugins/litespeed-cache/',
         'updraft-plus' => 'https://pl.wordpress.org/plugins/updraftplus/',
-        'wordfence'=>'https://pl.wordpress.org/plugins/wordfence/'
+        'wordfence'=>'https://pl.wordpress.org/plugins/wordfence/',
+        'elementor' => 'https://pl.wordpress.org/plugins/elementor/'
         // add more plugins if You need.
     ];
 
